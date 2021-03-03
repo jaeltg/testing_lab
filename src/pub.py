@@ -19,5 +19,11 @@ class Pub:
 
         return result_drink       
 
-
+    def sell_drink(self, drink, customer):
+        drink = self.find_drink_by_name(drink)
+        if drink.price > customer.wallet:
+            return
+        customer.reduce_money(drink.price)
+        self.increase_till(drink.price)
+        customer.add_drink(drink)
 

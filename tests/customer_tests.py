@@ -29,8 +29,8 @@ class TestCustomer (unittest.TestCase):
         self.customer.add_drink(self.drink_1)
         self.assertEqual(1, self.customer.drink_count())  
    
-    def test_customer_buys_drink(self):
-        self.customer.buy_drink(self.drink_2, self.pub)
-        self.assertEqual(18.5, self.customer.wallet)
-        self.assertEqual(506.5, self.pub.till)
-        self.assertEqual(1, self.customer.drink_count())
+    # def test_customer_buys_drink(self):
+    #     self.customer.buy_drink(self.drink_2, self.pub)
+    #     self.assertEqual(18.5, self.customer.wallet)
+    #     self.assertEqual(506.5, self.pub.till)
+    #     self.assertEqual(1, self.customer.drink_count())
