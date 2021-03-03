@@ -39,10 +39,15 @@ class TestPub (unittest.TestCase):
         self.pub.check_customer_age(self.customer_2)
         self.assertEqual(17, self.customer_2.age)        
         
+    def test_can_check_customer_drunkennes(self):
+        self.pub.check_customer_drunkennes(self.customer_1)
+        self.assertEqual(0, self.customer_1.drunkenness_level)  
+
     def test_pub_sell_drink(self):
         self.pub.sell_drink(self.drink_2, self.customer_1)
         self.assertEqual(18.5, self.customer_1.wallet)
         self.assertEqual(506.5, self.pub.till)
-        self.assertEqual(1, self.customer_1.drink_count())    
+        self.assertEqual(1, self.customer_1.drink_count())
+        self.assertEqual(4, self.customer_1.drunkenness_level)    
 
   
