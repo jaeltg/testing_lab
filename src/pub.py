@@ -19,15 +19,15 @@ class Pub:
 
         return result_drink    
 
-    def check_customer_age(self, customer):
+    def check_if_under_age(self, customer):
         return customer.age <= 18 
 
-    def check_customer_drunkennes(self, customer):
+    def check_if_drunk(self, customer):
         return customer.drunkenness_level >= 10          
 
     def sell_drink(self, drink, customer):
         drink = self.find_drink_by_name(drink)
-        if drink.price > customer.wallet or self.check_customer_age(customer) or self.check_customer_drunkennes(customer):
+        if drink.price > customer.wallet or self.check_if_under_age(customer) or self.check_if_drunk(customer):
             return
         customer.reduce_money(drink.price)
         self.increase_till(drink.price)
