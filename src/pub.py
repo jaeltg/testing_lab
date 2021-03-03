@@ -3,3 +3,6 @@ class Pub:
         self.name = name
         self.drinks = drinks
         self.till = till
+
+    def drink_count(self):
+        return len(self.drinks)    

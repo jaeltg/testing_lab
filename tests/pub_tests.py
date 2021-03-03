@@ -13,3 +13,9 @@ class TestPub (unittest.TestCase):
 
     def test_pub_has_name(self):
         self.assertEqual("JP's", self.pub.name)
+
+    def test_pub_has_till(self):
+        self.assertEqual(500, self.pub.till)    
+
+    def test_pub_has_drinks(self):
+        self.assertEqual(2, self.pub.drink_count())
