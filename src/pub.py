@@ -6,3 +6,6 @@ class Pub:
 
     def drink_count(self):
         return len(self.drinks)    
+
+    def increase_till(self, amount):
+        self.till += amount    
