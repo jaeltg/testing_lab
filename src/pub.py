@@ -27,7 +27,7 @@ class Pub:
 
     def sell_drink(self, drink, customer):
         drink = self.find_drink_by_name(drink)
-        if drink.price > customer.wallet and self.check_customer_age(customer) and self.check_customer_drunkennes(customer):
+        if drink.price > customer.wallet or self.check_customer_age(customer) or self.check_customer_drunkennes(customer):
             return
         customer.reduce_money(drink.price)
         self.increase_till(drink.price)
