@@ -1,8 +1,9 @@
 class Customer:
-    def __init__(self, name, wallet):
+    def __init__(self, name, wallet, age):
         self.name = name
         self.wallet = wallet
         self.drinks = []
+        self.age = age
         self.drunkenness_level = 0
         
     def reduce_money(self, amount):
@@ -14,10 +15,5 @@ class Customer:
     def drink_count(self):
         return len(self.drinks) 
 
-    # def buy_drink(self, drink, pub):
-    #     drink = pub.find_drink_by_name(drink)
-    #     if drink.price > self.wallet:
-    #         return
-    #     self.reduce_money(drink.price)
-    #     pub.increase_till(drink.price)
-    #     self.add_drink(drink)
+    def increase_drunkennes(self, drink):
+        self.drunkenness_level += drink.alcohol_level

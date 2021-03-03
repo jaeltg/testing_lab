@@ -17,13 +17,17 @@ class Pub:
             if drink.name == drink_to_find.name:
                 result_drink = drink
 
-        return result_drink       
+        return result_drink    
+
+    def check_customer_age(self, customer):
+        return customer.age <= 18       
 
     def sell_drink(self, drink, customer):
         drink = self.find_drink_by_name(drink)
-        if drink.price > customer.wallet:
+        if drink.price > customer.wallet and self.check_customer_age(customer):
             return
         customer.reduce_money(drink.price)
         self.increase_till(drink.price)
         customer.add_drink(drink)
+        customer.increase_drunkennes(drink)
 

@@ -5,15 +5,18 @@ from src.pub import Pub
 
 class TestCustomer (unittest.TestCase):
     def setUp(self):
-        self.customer = Customer("Malcolm", 25.0)
-        self.drink_1 = Drink("Mojito", 8.0)
-        self.drink_2 = Drink("Pilsen", 6.5)
+        self.customer = Customer("Malcolm", 25.0, 28)
+        self.drink_1 = Drink("Mojito", 8.0, 7)
+        self.drink_2 = Drink("Pilsen", 6.5, 4)
 
         drinks = [self.drink_2, self.drink_1]
         self.pub = Pub("JP's", drinks, 500)
 
     def test_customer_has_name(self):
-        self.assertEqual("Malcolm", self.customer.name)   
+        self.assertEqual("Malcolm", self.customer.name) 
+
+    def test_customer_has_age(self):
+        self.assertEqual(28, self.customer.age)    
 
     def test_customer_has_wallet(self):
         self.assertEqual(25.0, self.customer.wallet) 
@@ -27,10 +30,10 @@ class TestCustomer (unittest.TestCase):
 
     def test_add_drink(self):
         self.customer.add_drink(self.drink_1)
-        self.assertEqual(1, self.customer.drink_count())  
+        self.assertEqual(1, self.customer.drink_count())
+
+    def test_can_increase_drunkennes(self):
+        self.customer.increase_drunkennes(self.drink_1)
+        self.assertEqual(7, self.customer.drunkenness_level)    
    
-    # def test_customer_buys_drink(self):
-    #     self.customer.buy_drink(self.drink_2, self.pub)
-    #     self.assertEqual(18.5, self.customer.wallet)
-    #     self.assertEqual(506.5, self.pub.till)
-    #     self.assertEqual(1, self.customer.drink_count())
+
